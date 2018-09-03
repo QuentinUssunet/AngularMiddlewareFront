@@ -1,0 +1,36 @@
+<h2 style="text-align:center">Voici la liste des voitures :</h2>
+<div id="content">
+  <div id="table">
+    <table>
+      <tr>
+        <td>Model</td>
+        <td>Power</td> 
+        <td>Color</td>
+        <td>Actions</td>
+      </tr>
+      <tr class="car" *ngFor="let car of cars">
+        <td>{{car.model}}</td>
+        <td>{{car.power}}</td>
+        <td>{{car.color}}</td>
+        <td><a>X</a></td>
+      </tr>
+    </table>
+  </div>  
+  <div id="form">
+    <form #carForm="ngForm" (ngSubmit)="validateCar($event, carForm)" style="widows: 150px">
+      <div>
+        <label for="model">Enter the model: </label>
+        <input [(ngModel)]="newCarModel" type="text" name="model" id="model" required>
+      </div>
+      <div>
+        <label for="power">Enter the power: </label>
+        <input [(ngModel)]="newCarPower" type="text" name="power" id="power" required>
+      </div>
+      <div>
+        <label for="color">Enter the color: </label>
+        <input [(ngModel)]="newCarColor" type="text" name="color" id="color" required>
+      </div>
+      <button>Add</button>
+    </form>
+  </div>
+</div>
